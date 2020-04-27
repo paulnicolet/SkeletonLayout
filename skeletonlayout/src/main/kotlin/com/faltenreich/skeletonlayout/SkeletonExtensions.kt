@@ -2,11 +2,13 @@
 
 package com.faltenreich.skeletonlayout
 
+import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.faltenreich.skeletonlayout.recyclerview.SkeletonRecyclerView
 
@@ -38,6 +40,11 @@ fun View.createSkeleton(
     parent?.removeView(this)
 
     val skeleton = SkeletonLayout(this, maskColor, cornerRadius, showShimmer, shimmerColor, shimmerDurationInMillis)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        skeleton.id = View.generateViewId()
+    } else {
+        skeleton.id = ViewCompat.generateViewId()
+    }
 
     if (params != null) {
         skeleton.layoutParams = params
