@@ -75,7 +75,7 @@ fun RecyclerView.applySkeleton(
         showShimmer: Boolean = SkeletonLayout.DEFAULT_SHIMMER_SHOW,
         @ColorInt shimmerColor: Int = ContextCompat.getColor(context, SkeletonLayout.DEFAULT_SHIMMER_COLOR),
         shimmerDurationInMillis: Long = SkeletonLayout.DEFAULT_SHIMMER_DURATION_IN_MILLIS,
-        createSkeleton: Boolean = true
+        createSkeleton: Boolean = false
 ): Skeleton = SkeletonRecyclerView(
         this,
         listItemLayoutResId,
