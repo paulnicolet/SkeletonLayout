@@ -8,6 +8,7 @@
         <attr name="showShimmer" format="boolean"/>
         <attr name="shimmerColor" format="color"/>
         <attr name="shimmerDurationInMillis" format="integer"/>
+        <attr name="showSkeleton" format="boolean"/>
     </declare-styleable>
     
 </resources>

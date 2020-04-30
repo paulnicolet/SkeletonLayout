@@ -79,7 +79,12 @@ class SkeletonLayout @JvmOverloads constructor(
             this.showShimmerInternal = typedArray.getBoolean(R.styleable.SkeletonLayout_showShimmer, showShimmerInternal)
             this.shimmerColorInternal = typedArray.getColor(R.styleable.SkeletonLayout_shimmerColor, shimmerColorInternal)
             this.shimmerDurationInMillisInternal = typedArray.getInt(R.styleable.SkeletonLayout_shimmerDurationInMillis, shimmerDurationInMillisInternal.toInt()).toLong()
+            val showSkeleton = typedArray.getBoolean(R.styleable.SkeletonLayout_showSkeleton, DEFAULT_SHOW_SKELETON)
             typedArray.recycle()
+
+            if (showSkeleton) {
+                this.showSkeleton()
+            }
         }
         originView?.let { view -> addView(view) }
     }
@@ -172,5 +177,6 @@ class SkeletonLayout @JvmOverloads constructor(
         const val DEFAULT_SHIMMER_SHOW = true
         val DEFAULT_SHIMMER_COLOR = R.color.skeleton_shimmer
         const val DEFAULT_SHIMMER_DURATION_IN_MILLIS = 2000L
+        const val DEFAULT_SHOW_SKELETON = true
     }
 }
